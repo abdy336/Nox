@@ -11,8 +11,6 @@ jobs:
         uses: ArtemSBulgakov/buildozer-action@v1.6.1
         with:
           buildozer_version: master
-          # Buradaki 'python_version' hataya sebep oluyordu, kaldırdık. 
-          # Action zaten kendi içinde uygun olanı seçecek.
 
       - name: APK Dosyasını Yükle
         uses: actions/upload-artifact@v4
