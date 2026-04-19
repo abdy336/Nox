@@ -1,19 +1,20 @@
-name: NoxPlayer APK Yapici
+name: NoxPlayer APK Oluşturucu
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Buildozer ile APK Hazirla
-        uses: ArtemSBulgakov/buildozer-action@v1
+      - name: Buildozer ile APK Hazırla
+        uses: ArtemSBulgakov/buildozer-action@v1.6.1
         with:
           buildozer_version: master
-          python_version: 3.11
+          # Buradaki 'python_version' hataya sebep oluyordu, kaldırdık. 
+          # Action zaten kendi içinde uygun olanı seçecek.
 
-      - name: APK Dosyasini Yukle
+      - name: APK Dosyasını Yükle
         uses: actions/upload-artifact@v4
         with:
           name: NoxPlayer-Android-APK
